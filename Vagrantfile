@@ -24,6 +24,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 #    vb.name = "udvbuildserver"
     vb.memory = 1024
     vb.cpus = 4
+    vb.linked_clone = true if Vagrant::VERSION =~ /^1.8/
     vb.customize ["modifyvm", :id, "--ostype", "Ubuntu_64"]
   end
   config.vm.provision :shell, :inline => $script
